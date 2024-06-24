@@ -9,8 +9,6 @@ body {
     margin: 0;
 }
 section {
-    /* justify-content: center; */
-    /* align-items: center; */
     width: 100%;
     padding: 1%;
     margin: 0 20%;
@@ -20,10 +18,6 @@ section {
     display: flex;
     justify-content: center;
 
-}
-.logo {
-    /* width: auto; */
-    /* height: 10vh; */
 }
 .interaccion {
     margin: auto;
@@ -138,7 +132,7 @@ p {
         justify-content: center;
         align-items: center;
         height: auto;
-        margin-top: 2%;
+        margin-top: 8%;
     }
     section {
         /* display: flex; */
