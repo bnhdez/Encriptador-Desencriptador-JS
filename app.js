@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     saveButton.addEventListener("click", () => {
         
         guardadoDatos();
+        encriptarTexto();
     })
     function guardadoDatos(){
         newtext = textarea.value;
@@ -19,11 +20,11 @@ document.addEventListener("DOMContentLoaded", () => {
             textarea.value = '';
         } else {
         //agrego el texto al array
-            datos.push(newtext);
-            console.log(datos);
-            textarea.value = ''; // limpieza texto
-            display = false;
-            document.getElementById("p-info").innerText = newtext;
+            // datos.push(newtext);
+            // console.log(datos);
+            // textarea.value = ''; // limpieza texto
+            // display = false;
+            // document.getElementById("p-info").innerText = newtext;
         }
         console.log(display)
         mostrarDisplay()
@@ -38,6 +39,24 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("new-info").style.display = "flex";
         }
     }
+
+    function encriptarTexto(){
+        function reemplazarVocales(match) {
+            switch (match) {
+                case 'a': return '1';
+                case 'e': return '2';
+                case 'i': return '3';
+                case 'o': return '4';
+                case 'u': return '5';
+                default: return match;
+            }
+        }
+        // Aplicamos la función de reemplazo al texto nuevo
+        let textoEncriptado = newtext.replace(/[aeiou]/g, reemplazarVocales);
+        document.getElementById("p-info").innerText = textoEncriptado;
+        console.log(textoEncriptado);
+    }
+    
 
     copyButton.addEventListener("click", () => {
         let copytext = document.getElementById("p-info").innerHTML;
