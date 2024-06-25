@@ -20,10 +20,10 @@ document.addEventListener("DOMContentLoaded", () => {
             textarea.value = '';
         } else {
         //agrego el texto al array
-            // datos.push(newtext);
-            // console.log(datos);
-            // textarea.value = ''; // limpieza texto
-            // display = false;
+            datos.push(newtext);
+            console.log(datos);
+            textarea.value = ''; // limpieza texto
+            display = false;
             // document.getElementById("p-info").innerText = newtext;
         }
         console.log(display)
@@ -42,16 +42,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function encriptarTexto(){
         function reemplazarVocales(match) {
+            // segun vocal, mostrar codigo a mostrar metodo replace()
             switch (match) {
-                case 'a': return '1';
-                case 'e': return '2';
-                case 'i': return '3';
-                case 'o': return '4';
-                case 'u': return '5';
+                case 'a': return 'ai';
+                case 'e': return 'enter';
+                case 'i': return 'imes';
+                case 'o': return 'ober';
+                case 'u': return 'ufat';
                 default: return match;
             }
         }
         // Aplicamos la función de reemplazo al texto nuevo
+        // expresion regular '[aeiou]' busca las vocales substring x substrin por cada vocal
+        // reemplazarVocales recibe la vocal, la manda a su funcion a cambiar
         let textoEncriptado = newtext.replace(/[aeiou]/g, reemplazarVocales);
         document.getElementById("p-info").innerText = textoEncriptado;
         console.log(textoEncriptado);
