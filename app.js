@@ -1,16 +1,22 @@
 document.addEventListener("DOMContentLoaded", () => {
     const textarea = document.getElementById("datos");
-    const saveButton = document.getElementById("encriptar");
+    const encriptarButton = document.getElementById("encriptar");
+    const desencriptarButton = document.getElementById("desencriptar");
     const copyButton = document.getElementById("copy");
     let datos = [];
     let display = true;
     let newtext = ''
 
     
-    saveButton.addEventListener("click", () => {
+    encriptarButton.addEventListener("click", () => {
         
         guardadoDatos();
         encriptarTexto();
+    })
+    desencriptarButton.addEventListener("click", () => {
+        
+        guardadoDatos();
+        desencriptarTexto();
     })
     function guardadoDatos(){
         newtext = textarea.value;
@@ -58,6 +64,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let textoEncriptado = newtext.replace(/[aeiou]/g, reemplazarVocales);
         document.getElementById("p-info").innerText = textoEncriptado;
         console.log(textoEncriptado);
+    }
+    function desencriptarTexto(){
+        let textoDesencriptado = newtext
+            .replace(/ai/g, 'a')
+            .replace(/enter/g, 'e')
+            .replace(/imes/g, 'i')
+            .replace(/ober/g, 'o')
+            .replace(/ufat/g, 'u');
+        document.getElementById("p-info").innerText = textoDesencriptado;
+        console.log(textoDesencriptado);
     }
     
 
