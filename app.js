@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log(datos);
             textarea.value = ''; // limpieza texto
             display = false;
+            document.getElementById("p-info").innerText = newtext;
         }
         console.log(display)
         mostrarDisplay()
