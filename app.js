@@ -26,21 +26,32 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("El texto contiene caracteres especiales o acentos. Por favor, ingresa solo letras sin acentos y caracteres alfanuméricos.");
             textarea.value = '';
         } else {
-            // Agrego el texto al array
-            datos.push(newtext);
-            console.log(datos);
-            textarea.value = ''; // Limpieza texto
-            display = false;
-
-            if (encriptar) {
-                encriptarTexto();
+            // Verifico si el texto ya está encriptado o desencriptado
+            if (encriptar && isEncrypted(newtext)) {
+                alert("El texto ya está encriptado.");
+            } else if (!encriptar && !isEncrypted(newtext)) {
+                alert("El texto ya está desencriptado.");
             } else {
-                desencriptarTexto();
+                // Agrego el texto al array
+                datos.push(newtext);
+                console.log(datos);
+                textarea.value = ''; // Limpieza texto
+                display = false;
+
+                if (encriptar) {
+                    encriptarTexto();
+                } else {
+                    desencriptarTexto();
+                }
             }
         }
-        // console.log(display);
         mostrarDisplay();
     }
+
+    function isEncrypted(text) {
+        return /ai|enter|imes|ober|ufat/.test(text);
+    }
+    
     function mostrarDisplay() {
         if (display === true) {
             return;
