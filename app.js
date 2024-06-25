@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Función para procesar el texto (encriptar o desencriptar)
     function procesarTexto(encriptar) {
         datos.push(newtext); // Agrega el texto al array de datos
-        console.log(datos);
+        console.log("Aqui puedes ver el historial de los datos procesados", {datos});
         textarea.value = ''; // Limpia el textarea
         display = false;
 
