@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
             mostrarAlerta("Por favor ingresa tu texto a encriptar o desencriptar");
             return;
         }
-        if (tieneCaracteresEspeciales(newtext)) {
-            mostrarAlerta("El texto contiene caracteres especiales o acentos. Por favor, ingresa solo letras sin acentos y caracteres alfanuméricos.");
+        if (tieneCaracteresEspeciales(newtext) || tieneVocalesMayus(newtext)) {
+            mostrarAlerta("El texto contiene caracteres especiales, acentos o mayúsculas. Por favor, ingresa solo letras minúsculas sin acentos ni caracteres especiales.");
             return;
         }
         if (encriptar && isEncrypted(newtext)) {
@@ -39,10 +39,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function tieneCaracteresEspeciales(text) {
+        // busca caracter en el string
         return /[^a-zA-Z0-9\s]/.test(text);
     }
+    function tieneVocalesMayus(text) {
+        //busca mayusculas de la A a la Z
+        return /[A-Z]/.test(text);
+    }
 
+    // function tieneVocalesMayus(text) {
+    //     return /[AEIOU]/.test(text);
+    // }
+    
     function isEncrypted(text) {
+        // busca ese conjunto de strings por separado
         return /ai|enter|imes|ober|ufat/.test(text);
     }
 
@@ -93,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // reemplazarVocales recibe la vocal, la manda a su funcion a cambiar
         let textoEncriptado = newtext.replace(/[aeiou]/g, reemplazarVocales);
         document.getElementById("p-info").innerText = textoEncriptado;
-        console.log(textoEncriptado);
+        // console.log(textoEncriptado);
     }
     function desencriptarTexto(){
         let textoDesencriptado = newtext
@@ -105,8 +115,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("p-info").innerText = textoDesencriptado;
         // console.log(textoDesencriptado);
     }
-    
-
     copyButton.addEventListener("click", () => {
         let copytext = document.getElementById("p-info").innerHTML;
 
