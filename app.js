@@ -100,6 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("muñeco").style.display = "none";
             document.getElementById("titulo-display").style.display = "none";
             document.getElementById("texto-display").style.display = "none";
+            document.getElementById("copyright").style.display = "none";
             document.getElementById("new-info").style.display = "flex";
         }
     }
