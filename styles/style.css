@@ -195,9 +195,10 @@ p {
     height: auto;
 }
 #new-info button {
+    background-color: #FFFFFF;
+    border: 1px solid #0A3871;
+    color: #0A3871;
     width: 100%;
-    /* position: absolute; */
-    /* bottom: 0; */
 }
 @media (max-width: 1174px) {
     section {
