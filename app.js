@@ -9,31 +9,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     encriptarButton.addEventListener("click", () => {
-        
-        guardadoDatos();
-        encriptarTexto();
-    })
+        validacionDatos(true);
+    });
+
     desencriptarButton.addEventListener("click", () => {
-        
-        guardadoDatos();
-        desencriptarTexto();
-    })
-    function guardadoDatos(){
+        validacionDatos(false);
+    });
+
+    function validacionDatos(encriptar) {
         newtext = textarea.value;
-        //verifico que vengan datos
+        // verifico que vengan datos
         if (!newtext) {
-            alert("Por favor ingresa tu texto a encriptar");
+            alert("Por favor ingresa tu texto a encriptar o desencriptar");
+            textarea.value = '';
+        } else if (/[^a-zA-Z0-9\s]/.test(newtext)) { // Verificar caracteres especiales
+            alert("El texto contiene caracteres especiales o acentos. Por favor, ingresa solo letras sin acentos y caracteres alfanuméricos.");
             textarea.value = '';
         } else {
-        //agrego el texto al array
+            // Agrego el texto al array
             datos.push(newtext);
             console.log(datos);
-            textarea.value = ''; // limpieza texto
+            textarea.value = ''; // Limpieza texto
             display = false;
-            // document.getElementById("p-info").innerText = newtext;
+
+            if (encriptar) {
+                encriptarTexto();
+            } else {
+                desencriptarTexto();
+            }
         }
-        console.log(display)
-        mostrarDisplay()
+        // console.log(display);
+        mostrarDisplay();
     }
     function mostrarDisplay() {
         if (display === true) {
@@ -73,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/ober/g, 'o')
             .replace(/ufat/g, 'u');
         document.getElementById("p-info").innerText = textoDesencriptado;
-        console.log(textoDesencriptado);
+        // console.log(textoDesencriptado);
     }
     
 
@@ -82,9 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         navigator.clipboard.writeText(copytext).then(showSnackBar());
 
-        console.log(copytext);
+        // console.log(copytext);
     })
 
+    //activacion notificacion
     function showSnackBar() {
         var sb = document.getElementById("snackbar");
 
