@@ -60,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function tieneVocalesMayus(text) {
         return /[A-Z]/.test(text); // Expresión regular para letras mayúsculas
     }
-    
+
     // function tieneVocalesMayus(text) {
     //     return /[AEIOU]/.test(text);
     // }
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         // reemplazarVocales recibe la vocal, la manda a su funcion a cambiar
         let textoEncriptado = newtext.replace(/[aeiou]/g, reemplazarVocales);
         document.getElementById("p-info").innerText = textoEncriptado;
-        console.log(textoEncriptado);
+        // console.log(textoEncriptado);
     }
 
     // Función para desencriptar el texto
@@ -135,14 +135,14 @@ document.addEventListener("DOMContentLoaded", () => {
             .replace(/ober/g, 'o')
             .replace(/ufat/g, 'u');
         document.getElementById("p-info").innerText = textoDesencriptado;
-        console.log(textoDesencriptado);
+        // console.log(textoDesencriptado);
     }
 
     // Event listener para el botón de copiar
     copyButton.addEventListener("click", () => {
         let copytext = document.getElementById("p-info").innerHTML;
         navigator.clipboard.writeText(copytext).then(showSnackBar());
-        console.log(copytext);
+        // console.log(copytext);
     });
 
     // Función para mostrar la notificación de copia
