@@ -9,49 +9,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
     
     encriptarButton.addEventListener("click", () => {
-        validacionDatos(true);
+        validarYProcesarTexto(true);
     });
 
     desencriptarButton.addEventListener("click", () => {
-        validacionDatos(false);
+        validarYProcesarTexto(false);
     });
 
-    function validacionDatos(encriptar) {
+    function validarYProcesarTexto(encriptar) {
         newtext = textarea.value;
-        // verifico que vengan datos
         if (!newtext) {
-            alert("Por favor ingresa tu texto a encriptar o desencriptar");
-            textarea.value = '';
-        } else if (/[^a-zA-Z0-9\s]/.test(newtext)) { // Verificar caracteres especiales
-            alert("El texto contiene caracteres especiales o acentos. Por favor, ingresa solo letras sin acentos y caracteres alfanuméricos.");
-            textarea.value = '';
-        } else {
-            // Verifico si el texto ya está encriptado o desencriptado
-            if (encriptar && isEncrypted(newtext)) {
-                alert("El texto ya está encriptado.");
-            } else if (!encriptar && !isEncrypted(newtext)) {
-                alert("El texto ya está desencriptado.");
-            } else {
-                // Agrego el texto al array
-                datos.push(newtext);
-                console.log(datos);
-                textarea.value = ''; // Limpieza texto
-                display = false;
-
-                if (encriptar) {
-                    encriptarTexto();
-                } else {
-                    desencriptarTexto();
-                }
-            }
+            mostrarAlerta("Por favor ingresa tu texto a encriptar o desencriptar");
+            return;
         }
-        mostrarDisplay();
+        if (tieneCaracteresEspeciales(newtext)) {
+            mostrarAlerta("El texto contiene caracteres especiales o acentos. Por favor, ingresa solo letras sin acentos y caracteres alfanuméricos.");
+            return;
+        }
+        if (encriptar && isEncrypted(newtext)) {
+            mostrarAlerta("El texto ya está encriptado.");
+            return;
+        }
+        if (!encriptar && !isEncrypted(newtext)) {
+            mostrarAlerta("El texto ya está desencriptado.");
+            return;
+        }
+
+        procesarTexto(encriptar);
+    }
+
+    function tieneCaracteresEspeciales(text) {
+        return /[^a-zA-Z0-9\s]/.test(text);
     }
 
     function isEncrypted(text) {
         return /ai|enter|imes|ober|ufat/.test(text);
     }
-    
+
+    function mostrarAlerta(mensaje) {
+        alert(mensaje);
+        textarea.value = '';
+    }
+
+    function procesarTexto(encriptar) {
+        datos.push(newtext);
+        console.log(datos);
+        textarea.value = ''; // Limpieza texto
+        display = false;
+
+        if (encriptar) {
+            encriptarTexto();
+        } else {
+            desencriptarTexto();
+        }
+        mostrarDisplay();
+    }
+
     function mostrarDisplay() {
         if (display === true) {
             return;
