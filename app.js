@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     const textarea = document.getElementById("datos");
     const saveButton = document.getElementById("encriptar");
+    const copyButton = document.getElementById("copy");
     let datos = [];
     let display = true;
+    let newtext = ''
 
     
     saveButton.addEventListener("click", () => {
@@ -10,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
         guardadoDatos();
     })
     function guardadoDatos(){
-        const newtext = textarea.value;
+        newtext = textarea.value;
         //verifico que vengan datos
         if (!newtext) {
             alert("Por favor ingresa tu texto a encriptar");
@@ -37,5 +39,13 @@ document.addEventListener("DOMContentLoaded", () => {
             // document.getElementById("display").style.justifyContent = "space-between";
         }
     }
+
+    copyButton.addEventListener("click", () => {
+        let copytext = document.getElementById("p-info").innerHTML;
+
+        navigator.clipboard.writeText(copytext);
+
+        console.log(copytext);
+    })
     ;
 });
