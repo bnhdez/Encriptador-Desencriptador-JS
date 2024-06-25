@@ -92,6 +92,7 @@ button:hover {
     border-radius: 32px;
     display: flex;
     flex-direction: column;
+    /* justify-content: space-between; */
     justify-content: center;
     padding: 25px;
     box-shadow: 0px 5px 5px rgba(197, 197, 197, 0.5);
@@ -112,11 +113,18 @@ p {
     font-size: 1rem;
 }
 #new-info {
-    text-align: justify;
     display: none;
+    position: relative;
+    height: 100%;
 }
-#copiar {
-    display: none;
+#new-info p {
+    text-align: justify;
+    height: auto;
+}
+#new-info button {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
 @media (max-width: 1174px) {
     section {
@@ -155,6 +163,9 @@ p {
     }
     p {
         font-size: 1.5rem;
+    }
+    #new-info p {
+        margin-bottom: 20%;
     }
     #muñeco {
         display: none;
