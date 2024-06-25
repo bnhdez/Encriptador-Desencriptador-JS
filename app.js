@@ -33,8 +33,8 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("muñeco").style.display = "none";
             document.getElementById("titulo-display").style.display = "none";
             document.getElementById("texto-display").style.display = "none";
-            document.getElementById("new-info").style.display = "block";
-            document.getElementById("display").style.justifyContent = "space-between";
+            document.getElementById("new-info").style.display = "flex";
+            // document.getElementById("display").style.justifyContent = "space-between";
         }
     }
     ;

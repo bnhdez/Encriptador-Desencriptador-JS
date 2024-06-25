@@ -114,7 +114,9 @@ p {
 }
 #new-info {
     display: none;
-    position: relative;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     height: 100%;
 }
 #new-info p {
@@ -123,8 +125,8 @@ p {
 }
 #new-info button {
     width: 100%;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute; */
+    /* bottom: 0; */
 }
 @media (max-width: 1174px) {
     section {
@@ -162,11 +164,16 @@ p {
         font-size: 2rem;
     }
     p {
-        font-size: 1.5rem;
+        font-size: 1.7rem;
+    }
+    #new-info {
+        width: 100%;
     }
     #new-info p {
         padding: 0% 2%; 
-        margin-bottom: 12%;
+    }
+    #new-info button {
+        width: 90%;
     }
     #muñeco {
         display: none;
@@ -218,10 +225,7 @@ p {
         font-size: 1.2rem;
     }
     p {
-        font-size: 1rem;
-    }
-    #new-info p {
-        margin-bottom: 22%;
+        font-size: 1.5rem;
     }
 }
 @media (max-width: 700px) {
@@ -238,6 +242,6 @@ p {
         font-size: 1rem;
     }
     p {
-        font-size: 0.7rem;
+        font-size: 1.2rem;
     }
 }
