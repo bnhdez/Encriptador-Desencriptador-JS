@@ -165,7 +165,8 @@ p {
         font-size: 1.5rem;
     }
     #new-info p {
-        margin-bottom: 20%;
+        padding: 0% 2%; 
+        margin-bottom: 12%;
     }
     #muñeco {
         display: none;
@@ -218,6 +219,9 @@ p {
     }
     p {
         font-size: 1rem;
+    }
+    #new-info p {
+        margin-bottom: 22%;
     }
 }
 @media (max-width: 700px) {
