@@ -42,9 +42,18 @@ document.addEventListener("DOMContentLoaded", () => {
     copyButton.addEventListener("click", () => {
         let copytext = document.getElementById("p-info").innerHTML;
 
-        navigator.clipboard.writeText(copytext);
+        navigator.clipboard.writeText(copytext).then(showSnackBar());
 
         console.log(copytext);
     })
+
+    function showSnackBar() {
+        var sb = document.getElementById("snackbar");
+
+        //this is where the class name will be added & removed to activate the css
+        sb.className = "show";
+
+        setTimeout(() => { sb.className = sb.className.replace("show", ""); }, 3000);
+    }
     ;
 });
